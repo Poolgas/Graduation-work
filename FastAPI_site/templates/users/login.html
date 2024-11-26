@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Авторизация</h3>
+    <div class="box">
+    <form method="POST" action="/login">
+
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="username" placeholder="Логин" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="password" name="password" placeholder="Пароль">
+                </div>
+            </div>
+            <div class="field">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Запомнить меня
+                </label>
+            </div>
+            <a href="/pages/none"><button type="button">Войти</button></a>
+
+            <p><a href="/user/registration">Еще не зарегестрированы?</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
