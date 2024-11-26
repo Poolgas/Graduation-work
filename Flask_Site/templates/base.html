@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+
+    <meta charset="UTF-8">
+    <title>{{ Title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link type="text/css" href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" />
+
+</head>
+<body class="is-preload">
+
+{% include 'includes/header.html' %}
+{% block mainmenu %}
+
+		<div class="header">
+			<ul id="mainmenu" class="mainmenu">
+				<li><a href="/">Главная</a> </li>
+
+			<li><a href="/add_post">Добавление записи</a></li>
+
+	{% if current_user.is_authenticated %}
+	<li class="last"><a href="/logout">Выйти</a> | <a href="/profile">Профиль</a></li>
+	{% endif %}
+
+	{% if not current_user.is_authenticated %}
+    <li class="last"><a href="/login">Войти</a> | <a href="/registration">Регистрация</a></li>
+  </li>
+	{% endif %}
+			</ul>
+			<div class="clear"></div>
+		</div>
+{% endblock mainmenu %}
+	<div class="content-text">
+{% block content %}
+{% endblock %}
+	</div>
+
+<!-- Paginator -->
+{% if page_obj %}<div style="text-align: center;"><hr>{% include 'includes/paginator.html' %}</div>{% endif %}
+{% include 'includes/footer.html' %}
+</body>
+</html>
