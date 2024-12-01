@@ -19,6 +19,13 @@ Header.html, footer.html и paginator.html - шаблоны для Header-а, fo
 Заключение
 
 Приложения представляют функциональную основу для сайта-блога с возможностью расширения в будущем и добавлением дополнительного функционала. Все три приложения имеют схожую визуальную структуру но немного различающийся функционал.
+Пример работы сайта на Django:
+![Сайт на Django](https://github.com/user-attachments/assets/10d5793d-e67a-4e00-9f90-f6c67df0f1d7)
+Пример работы сайта на Flask:
+![image](https://github.com/user-attachments/assets/0c2f31f9-7aaa-4ece-b18a-d61ee31f7216)
+Пример работы сайта на FastAPI
+![image](https://github.com/user-attachments/assets/450116dc-82b7-40a3-a82e-9f5e75f10ebf)
+
 
 
 Список необходимых библиотек для Django:
