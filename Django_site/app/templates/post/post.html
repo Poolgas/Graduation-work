@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+
+<p><a href="{% url 'post:update_post' post.pk %}">Редактировать</a></p>
+<p><a href="{% url 'post:delete_post' post.pk %}">Удалить </a></p>
+
+{% endblock %}
+
+{% block content %}
+<h2>{{ post.title }}</h2>
+<h3>{{ post.description }}</h3>
+
+
+{% if post.image %}
+<p><img class="img-article-right" src="{{ post.image.url }}"> </p>
+{% endif %}
+
+{{ post.content|linebreaks }}
+{% endblock %}
