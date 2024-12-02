@@ -1,5 +1,6 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination">
+            {% if posts.has_next or posts.has_prev %}
             {% if posts.has_prev %}
                 <li class="page-item"><a class="page-link" href="{{ url_for('posts.index', page=posts.prev_num) }}">Previous</a></li>
             {% else %}
@@ -22,6 +23,7 @@
                 <li class="page-item"><a class="page-link" href="{{ url_for('posts.index', page=posts.next_num) }}">Next</a></li>
             {% else %}
                 <li class="page-item disabled"><span class="page-link">Next</span></li>
+            {% endif %}
             {% endif %}
         </ul>
     </nav>
