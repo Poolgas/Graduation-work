@@ -8,10 +8,12 @@ from models.post import Post, Category
 post_route = Blueprint('route', __name__)
 
 
+@post_route.route('/<int:page>')
 @post_route.route('/')
-def index():
+def index(page=1):
     """Главная страница"""
-    post_list = Post.query.all()
+    per_page = 3
+    post_list = Post.query.paginate(page=page, per_page=per_page, error_out=False)
     return render_template('post/index.html', posts=post_list, title='Главная')
 
 
