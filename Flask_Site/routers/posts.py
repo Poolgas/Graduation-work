@@ -58,6 +58,8 @@ def add_post():
 def update_post(post_id):
     """Представление редактирования статей"""
     post = Post.query.get_or_404(post_id)
+    if not current_user.is_authenticated:
+        return redirect(url_for('users.login'))
     if request.method == 'POST':
         post.title = request.form['title']
         post.content = request.form['content']
@@ -73,7 +75,11 @@ def update_post(post_id):
 def delete_post(post_id):
     """Представление удаления статей"""
     post = Post.query.get_or_404(post_id)
-    db.session.delete(post)
-    db.session.commit()
-    flash('Запись удалена!', 'success')
-    return redirect(url_for('posts.index'))
+    if not current_user.is_authenticated:
+        return redirect(url_for('users.login'))
+    if request.method == 'POST':
+        db.session.delete(post)
+        db.session.commit()
+        flash('Запись удалена!', 'success')
+        return redirect(url_for('posts.index'))
+    return render_template('post/delete.html', post=post)
