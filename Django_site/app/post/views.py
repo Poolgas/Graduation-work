@@ -54,7 +54,7 @@ class AddPost(LoginRequiredMixin, CreateView):
     }
 
 
-class UpdatePost(UpdateView):
+class UpdatePost(LoginRequiredMixin, UpdateView):
     """Класс обработчик страницы /add_post редактирует выбранную статью"""
     model = Post
     fields = ['title', 'description', 'image', 'category', 'is_published']
@@ -66,7 +66,7 @@ class UpdatePost(UpdateView):
     }
 
 
-class DeletePost(DeleteView):
+class DeletePost(LoginRequiredMixin, DeleteView):
     """Класс обработчик страницы /delete_post удаляет выбранную статью"""
     model = Post
     success_url = reverse_lazy('post:home')
